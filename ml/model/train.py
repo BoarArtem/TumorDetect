@@ -7,7 +7,7 @@ def train(num_epochs, model, train_loader, device, optim, criterion):
         model.train()
 
         for images, masks in train_loader:
-            images, masks = images.to(device), masks.to(device).unsqueeze(0)
+            images, masks = images.to(device), masks.to(device).unsqueeze(1)
 
             optim.zero_grad()
 
