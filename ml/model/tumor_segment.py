@@ -65,15 +65,15 @@ class UNet(nn.Module):
 
         u3 = self.up3(u4)
         u3 = torch.cat([u3, d3], dim=1)
-        u3 = self.conv4(u3)
+        u3 = self.conv3(u3)
 
-        u2 = self.up(u3)
+        u2 = self.up2(u3)
         u2 = torch.cat([u2, d2], dim=1)
-        u2 = self.conv4(u2)
+        u2 = self.conv2(u2)
 
-        u1 = self.up4(u2)
+        u1 = self.up1(u2)
         u1 = torch.cat([u1, d1], dim=1)
-        u1 = self.conv4(u1)
+        u1 = self.conv1(u1)
 
         return self.final(u1)
 
